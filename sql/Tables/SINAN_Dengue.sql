@@ -1,0 +1,17 @@
+CREATE TABLE [SINAN].[DENGBR](
+	[ID_AGRAVO] [varchar](50) NULL,
+	[DT_INVEST] [varchar](50) NULL,
+	[ID_OCUPA_N] [varchar](50) NULL,
+	[FEBRE] [varchar](50) NULL,
+	[HOSPITALIZ] [varchar](50) NULL,
+	[UF] [varchar](50) NULL,
+	[MUNICIPIO] [varchar](50) NULL,
+	[COUFINF] [varchar](50) NULL,
+	[COPAISINF] [varchar](50) NULL,
+	[COMUNINF] [varchar](50) NULL,
+	[CLASSI_FIN] [varchar](50) NULL,
+	[CRITERIO] [varchar](50) NULL,
+	[DT_OBITO] [varchar](50) NULL,
+	[DT_ALRM] [varchar](50) NULL,
+	[DT_GRAV] [varchar](50) NULL
+) ON [PRIMARY]
