@@ -1,0 +1,6 @@
+CREATE TABLE [Geral].[DeParaMunicipio](
+	[DE_CD_MUNICIPIO] [int] NULL,
+	[DE_NM_MUNICIPIO] [varchar](50) NULL,
+	[PARA_CD_MUNICIPIO] [int] NULL,
+	[PARA_NM_MUNICIPIO] [varchar](50) NULL
+) ON [PRIMARY]
