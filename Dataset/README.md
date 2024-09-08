@@ -153,7 +153,7 @@
 - Escopo final do Dataset V 6.0
 - Casting mensal das colunas de data
 
-### Analitica V 2.0
+### Analitica V 1.0
 
 - Primeira ingestão de dados
 - Origem Codifica V 1.0
