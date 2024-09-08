@@ -7,13 +7,17 @@ CREATE TABLE [db_dengue].[Geral].[Criterio] (
 	NM_CRITERIO VARCHAR(50)
 )
 
+TRUNCATE TABLE [db_dengue].[Geral].[Criterio]
+
 INSERT INTO [db_dengue].[Geral].[Criterio]
 (NM_COLUNA, ID_CRITERIO, NM_CRITERIO)
 VALUES
 ('HOSPITALIZACAO', 0, 'Não ocorreu Hospitalização'),
 ('HOSPITALIZACAO', 1, 'Ocorreu Hospitalização'),
+('HOSPITALIZACAO', 2, 'Ignorado'),
 ('CLASSIFICADOR',  0, 'Descartado'),
-('CLASSIFICADOR',  1, 'Dengue com sinais de alarme'),
+('CLASSIFICADOR',  1, 'Dengue'),
+('CLASSIFICADOR',  2, 'Dengue com sinais de alarme'),
 ('CLASSIFICADOR',  3, 'Dengue Grave'),
 ('CLASSIFICADOR',  4, 'Chikungunya'),
 ('CRITERIO',       0, 'Descartado'),
