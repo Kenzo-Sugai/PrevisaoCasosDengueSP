@@ -1,3 +1,18 @@
+CREATE TABLE db_dengue.dengue.publicacao AS
+
+WITH datas AS (
+
+	SELECT DISTINCT DT_NOTIFICACAO FROM db_dengue.dengue.codificada
+
+),
+datas_por_municipio AS (
+
+	SELECT DISTINCT DT_NOTIFICACAO, CD_MUNICIPIO FROM datas
+	CROSS JOIN db_dengue.ibge.municipios
+	WHERE uf = 35
+
+)
+
 SELECT 
 	b.dt_notificacao,
 	extract(year from b.dt_notificacao) as ano_notificacao,
@@ -13,19 +28,16 @@ SELECT
 	COUNT(CASE WHEN vomito = 1 THEN 1 ELSE NULL END) AS qntd_vomito,
 	COUNT(CASE WHEN nausea = 1 THEN 1 ELSE NULL END) AS qntd_nausea,
 	COUNT(CASE WHEN sangramento = 1 THEN 1 ELSE NULL END) AS qntd_sangramento,
-	precipitacao_total_mensal, 
-	temp_media_mensal, 
-	vento_vlc_media_mensal
+	AVG(precipitacao_total_mensal) precipitacao_total_mensal, 
+	AVG(temp_media_mensal) temp_media_mensal, 
+	AVG(vento_vlc_media_mensal) vento_vlc_media_mensal
 FROM 
 	db_dengue.dengue.codificada a
 RIGHT JOIN
 	datas_por_municipio b on a.dt_notificacao = b.dt_notificacao and a.cd_municipio = b.cd_municipio
 GROUP BY
-	b.dt_notificacao, 
-	b.cd_municipio,  
-	precipitacao_total_mensal, 
-	temp_media_mensal, 
-	vento_vlc_media_mensal
+	b.dt_notificacao,
+	b.cd_municipio
 ORDER BY
 	b.dt_notificacao, 
 	b.cd_municipio
